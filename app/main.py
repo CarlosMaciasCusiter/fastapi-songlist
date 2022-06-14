@@ -22,6 +22,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
+@app.get("/")
+def root():
+    return {"Hello": "World!"}
+
+
 app.include_router(song.router)
 app.include_router(users.router)
 app.include_router(auth.router)
