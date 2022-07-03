@@ -39,7 +39,7 @@ jobs:
       - name: install all dependencies
         run: pip install -r requirements.txt
       - name: Checking Env Variables
-        run: echo "${{secrets.DATABASE_HOSTNAME}}"
+        run: echo "$GITHUB_CONTEXT"
       - name: test with pytest
         run: |
           pip install pytest
