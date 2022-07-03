@@ -24,7 +24,7 @@ def login(
 
     if not utils.verify(user_credentials.password, user.password):
         raise HTTPException(
-            status_code=status.HTTP_403_FORBIDDEN, details=f"Invalid Credentials"
+            status_code=status.HTTP_403_FORBIDDEN, detail=f"Invalid Credentials"
         )
 
     # Create a token

@@ -44,9 +44,19 @@ def create_songs(
     return new_song
 
 
-@router.get("/{id}", response_model=schemas.Song)
-def get_song(id: str, db: Session = Depends(get_db)):
-    song = db.query(models.Songs).filter(models.Songs.id == id).first()
+@router.get("/{id}", response_model=schemas.SongOut)
+def get_song(
+    id: str,
+    db: Session = Depends(get_db),
+    current_user: int = Depends(oauth2.get_current_user),
+):
+    song = (
+        db.query(models.Songs, func.count(models.Vote.song_id).label("votes"))
+        .join(models.Vote, models.Vote.song_id == models.Songs.id, isouter=True)
+        .group_by(models.Songs.id)
+        .filter(models.Songs.id == id)
+        .first()
+    )
     if not song:
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,
@@ -70,7 +80,7 @@ def delete_post(
         )
     if song.owner_id != current_user.id:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Not Authorized to delete"
+            status_code=status.HTTP_403_FORBIDDEN, detail="Not Authorized to delete"
         )
     song_query.delete(synchronize_session=False)
     db.commit()
@@ -93,7 +103,7 @@ def update_song(
         )
     if song.owner_id != current_user.id:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Not Authorized to update"
+            status_code=status.HTTP_403_FORBIDDEN, detail="Not Authorized to update"
         )
     song_query.update(updated_song.dict(), synchronize_session=False)
     db.commit()

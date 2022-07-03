@@ -64,3 +64,6 @@ class Vote(BaseModel):
 class SongOut(BaseModel):
     Songs: Song
     votes: int
+
+    class Config:
+        orm_mode = True
