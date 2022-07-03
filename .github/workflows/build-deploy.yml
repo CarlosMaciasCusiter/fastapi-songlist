@@ -1,7 +1,7 @@
 name: Build and Deploy Code
 on: [push, pull_request]
 jobs:
-  job1:
+  build:
     env: 
       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
       DATABASE_PORT: ${{secrets.DATABASE_PORT}}
@@ -16,7 +16,7 @@ jobs:
         image: postgres
         env:
           POSTGRES_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
-          POSTGRES_HOST: ${{secrets.DATABASE_NAME}}_test
+          POSTGRES_DB: ${{secrets.DATABASE_NAME}}_test
         ports:
           - 5432:5432
         options: >-
@@ -40,4 +40,3 @@ jobs:
         run: |
           pip install pytest
           pytest
-      
