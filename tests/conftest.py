@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}_test"
 print(SQLALCHEMY_DATABASE_URL)
+print(f"{settings.database_name}")
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 Test_SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
