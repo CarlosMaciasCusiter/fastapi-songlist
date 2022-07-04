@@ -25,7 +25,7 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    return {"Hello": "World!!"}
+    return {"Hello": "Pushing to Ubuntu"}
 
 
 app.include_router(song.router)
