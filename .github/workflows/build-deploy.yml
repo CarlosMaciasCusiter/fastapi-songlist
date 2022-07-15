@@ -1,6 +1,6 @@
-# name: Build and Deploy Code
-# on: [push, pull_request]
-# jobs:
+name: Build and Deploy Code
+on: [push, pull_request]
+jobs:
 #   build:
 #     environment:
 #       name: testing
