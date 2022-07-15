@@ -81,7 +81,6 @@ jobs:
           git pull
           echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
   build-frontend:
-    build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
