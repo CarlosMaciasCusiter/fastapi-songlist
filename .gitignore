@@ -2,3 +2,5 @@ __pycache__
 /venv2/
 .env
 notes.txt
+/client/nodemodules/
+/client/package-lock.json
