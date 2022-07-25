@@ -1,12 +1,9 @@
-# This is a <h1> tag
-
-## This is a <h2> tag
-
-###### This is a <h6> tag
-
-_italic_
-**bold**
-
-## View the automated docs at
+## View the Sawgger ui automated docs at
 
 *http://austincusiter.xyz/docs*
+
+## Send some API reqests at
+
+*http://austincusiter.xyz/*
+
+### API and Postgres Database are hosted on Digital Ocean
