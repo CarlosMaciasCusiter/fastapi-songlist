@@ -7,4 +7,6 @@
 _italic_
 **bold**
 
-http://austincusiter.xyz/docs – automatic! [GitHub](http://austincusiter.xyz/docs)
+## View the automated docs at
+
+*http://austincusiter.xyz/docs*
