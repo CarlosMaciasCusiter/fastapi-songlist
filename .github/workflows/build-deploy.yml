@@ -4,7 +4,7 @@ jobs:
 #   build:
 #     environment:
 #       name: testing
-#     env: 
+#     env:
 #       DATABASE_HOSTNAME: ${{secrets.DATABASE_HOSTNAME}}
 #       DATABASE_PORT: ${{secrets.DATABASE_PORT}}
 #       DATABASE_PASSWORD: ${{secrets.DATABASE_PASSWORD}}
@@ -80,29 +80,29 @@ jobs:
 #           cd app/src
 #           git pull
 #           echo ${{secrets.PROD_PASSWORD}} | sudo -S systemctl restart api
-  build-frontend:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [18.x]
+# build-frontend:
+#   runs-on: ubuntu-latest
+#   strategy:
+#     matrix:
+#       node-version: [18.x]
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+#   steps:
+#   - name: Checkout repository
+#     uses: actions/checkout@v2
 
-    - name: Set up Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+#   - name: Set up Node.js ${{ matrix.node-version }}
+#     uses: actions/setup-node@v1
+#     with:
+#       node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
-      working-directory: client
+#   - name: Install dependencies
+#     run: npm install
+#     working-directory: client
 
-    # - name: Run the tests
-    #   run: npm test
-    #   working-directory: client
+#   # - name: Run the tests
+#   #   run: npm test
+#   #   working-directory: client
 
-    - name: Build
-      run: npm run build
-      working-directory: client
+#   - name: Build
+#     run: npm run build
+#     working-directory: client
