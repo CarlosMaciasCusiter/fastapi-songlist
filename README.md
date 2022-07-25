@@ -7,4 +7,4 @@
 _italic_
 **bold**
 
-http://github.com – automatic! [GitHub](http://github.com)
+http://austincusiter.xyz/docs – automatic! [GitHub](http://austincusiter.xyz/docs)
